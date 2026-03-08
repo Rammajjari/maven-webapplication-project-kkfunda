@@ -46,7 +46,7 @@
 <body>
 
 <header>
-    <marquee> <h1> WELCOME TO KK FUNDA DEVOPS </h1> </marquee>
+    <marquee> <h1> WELCOME TO Majjari Ramamohan </h1> </marquee>
     <h3>Training | Development | Consulting</h3>
 </header>
 
