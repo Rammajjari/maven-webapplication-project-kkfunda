@@ -46,7 +46,7 @@
 <body>
 
 <header>
-    <marquee> <h1> WELCOME TO Majjari Ramamohan from kadap</h1> </marquee>
+    <marquee> <h1> WELCOME TO Majjari Ramamohan from kadapa</h1> </marquee>
     <h3>Training | Development | Consulting</h3>
 </header>
 
