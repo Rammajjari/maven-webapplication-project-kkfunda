@@ -46,7 +46,7 @@
 <body>
 
 <header>
-    <marquee> <h1> WELCOME TO Majjari Ramamohan from mydukur</h1> </marquee>
+    <marquee> <h1> WELCOME TO Majjari from mydukur</h1> </marquee>
     <h3>Training | Development | Consulting</h3>
 </header>
 
