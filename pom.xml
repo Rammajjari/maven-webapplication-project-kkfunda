@@ -21,7 +21,7 @@
 		<spring.version>5.3.34</spring.version>
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
-		<sonar.host.url>http://65.0.170.132:9000/</sonar.host.url>
+		<sonar.host.url>http://13.203.78.159:9000/</sonar.host.url>
 		<sonar.login>admin</sonar.login>
 		<sonar.password>Admin</sonar.password> 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -104,7 +104,7 @@
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>KK FUNDA Snapshot Nexus Repository </name>
-	      <url>http://43.204.114.46:8081/repository/Airtel-first-snapsho/</url>
+	      <url>http://13.233.155.67:8081/repository/First-jio-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
