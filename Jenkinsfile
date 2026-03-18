@@ -1,7 +1,7 @@
 //This is my first scripted-way pipeline
 
+properties([pipelineTriggers([cron('* * * * * ')])])
 node
-
 {
  def mavenHome=tool name: "maven-3.9.14"
  stage('Git checkout')
