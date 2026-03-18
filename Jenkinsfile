@@ -1,77 +1,44 @@
+//This is my first scripted-way pipeline
 
-//dev jenkins pipeline
-pipeline
+node
+
 {
-    
-   agent any
-   tools
-   {
-      maven "maven-3.9.7"
-   }
-   stages
-   {
-           stage('git checkout')
-           {
-              steps
-              {
-                 
-                 git branch: 'dev', url: 'https://github.com/kkdevopsb7/maven-webapplication-project-kkfunda.git'
-              }
-           }
-           stage('compile')
-           {
-              steps
-              {
-                 sh "mvn compile"
-              }
-           }
-           stage('Build')
-           {
-             steps
-             {
-               sh "mvn clean package"
-             }
-           }
-         stage('SQ REPORT')
-           {
-             steps
-             {
-                sh "mvn sonar:sonar"
-             }
-           }   
-           stage('Deploy to nexus')
-           {
-              steps
-              {
-                sh "mvn clean deploy"
-              }
-           }
-           stage('Deploy to tomcat')
-           {
-              steps
-              {
-                 sh """
+ def mavenHome=tool name: "maven-3.9.14"
+ stage('Git checkout')
+  {
+    git branch: 'dev', url: 'https://github.com/Rammajjari/maven-webapplication-project-kkfunda.git'
 
-      curl -u kk:password \
---upload-file /var/lib/jenkins/workspace/jio-Declarative-PL-dev/target/maven-web-application.war \
-"http://13.232.234.199:8080/manager/text/deploy?path=/maven-web-application&update=true"
-          
+}
+ stage('compile')
+{
+ sh "${mavenHome}/bin/mvn compile"
+}
+stage('maven Build')
+{
+ sh "${mavenHome}/bin/mvn clean package"
+}
+stage('SonarQube Report')
+{
+ sh "${mavenHome}/bin/mvn sonar:sonar"
+}
+stage ('Nexus Artifact')
+{
+
+sh "${mavenHome}/bin/mvn deploy"
+
+}
+
+stage('Deploy to Tomcat') 
+{
+    withCredentials([usernamePassword(
+        credentialsId: 'tomcat-cread-1',
+        usernameVariable: 'USER',
+        passwordVariable: 'PASS'
+    )]) {
+        sh """
+        curl -u $USER:$PASS \
+        --upload-file target/maven-web-application.war \
+        "http://52.66.199.193:8080/manager/text/deploy?path=/maven-web-application&update=true"
         """
-              }
-           }
-           stage('airtel-qa')
-           {
-              steps
-              {
-                 build job: 'airtel-qa'  //This down stream job
-              }
-           }
-
-   }  //stages ending
-
-   } //pipeline ending
-
-
-
-
-
+    }}
+}
