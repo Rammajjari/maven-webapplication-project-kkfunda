@@ -1,0 +1,2 @@
+https://blog.kkdevops.com/jenkins-master-slave-architecture-2/
+https://blog.kkdevops.com/jenkins-ci-cd-upstream-downstream-triggers-parallel-execution-shared-libraries/
